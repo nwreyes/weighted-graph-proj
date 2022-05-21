@@ -1,4 +1,4 @@
-# CoRE Hacks Project
+# CoRE Project
 ## Simple Graph and Node classes - Nicholas Reyes
 
 ## Brief Description
