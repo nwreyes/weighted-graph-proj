@@ -1,4 +1,5 @@
 #include "Node.cpp"
+#include "Graph.cpp"
 #include <iostream>
 
 using std::cout;
@@ -57,10 +58,30 @@ int main() {
     cout << "jode: " << jode.toString() << '\n';
     cout << "frode: " << frode.toString() << '\n';
     cout << "snode: " << snode.toString() << '\n';
-    cout << "tim peck: " << timPeck .toString() << '\n';    
+    cout << "tim peck: " << timPeck .toString() << '\n';  
 
+    timPeck.addPath(peckPtr);
+    timPeck.addPath(jodePtr);  
 
-    cout << "\n===================================\n";
+cout << "tim peck after attempting to add duplicate nodes: " << timPeck .toString() << '\n';
+
+    cout << "\n=== Testing Graph Class Methods ===\n";
+
+    Graph graph = Graph(timPeck);
+
+    cout << "graph instantiation: " << graph.toString() << '\n';
+    
+    graph.addNode(jode);
+    graph.addNode(snode);
+    graph.addNode(frode);
+
+    cout << "graph after adding three nodes: "  << graph.toString() << '\n';
+
+    graph.addNode(timPeck);
+
+    cout << "graph after attempting to add duplicate node: "  << graph.toString() << '\n';
+
+    cout <<"\n===================================\n";
 
     
     return 0;

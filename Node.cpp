@@ -77,13 +77,22 @@ void Node::addPath(Node* dest)
     arg: dest - pointer to a node
     */
 
+    for (int i=0; i<paths.size(); i++)
+    {
+        if ((*dest).getKey() == (*paths[i]).getKey())
+        {
+            cout << "\nfailed to add path - duplicate node detected\n";
+            return;
+        }
+    }
+
     if ((*dest).getKey() != keyValue)
     {
         paths.push_back(dest);
 
     } else
     {
-        cout << "failed to add path - duplicate to root";
+        cout << "\nfailed to add path - duplicate to root\n";
     }
 
 };
@@ -114,6 +123,11 @@ string Node::toString()
             string tmp = to_string((*(paths[i])).getKey());
             nodeStr += tmp + "}";
         }
+    }
+
+    if (paths.size() == 0)
+    {
+        nodeStr += "}";
     }
 
     return nodeStr; // form: (key, weight), paths
